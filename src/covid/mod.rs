@@ -8,7 +8,8 @@ const CSV_URI: &str = "https://raw.githubusercontent.com/COVID19-Malta/COVID19-D
 pub async fn fetch_latest_case() -> Result<Entry> {
     let req = reqwest::get(CSV_URI).await?;
     let content = req.text().await?;
-    let content: Vec<&str> = content.trim().split("\r\n").collect();
+    let content: Vec<&str> = content.trim().split("\n").collect();
+    println!("{:#?}", content);
 
     Ok(entry::parse_from_csv(content.last().unwrap())?)
 }
