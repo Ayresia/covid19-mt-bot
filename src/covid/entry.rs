@@ -5,19 +5,19 @@ pub struct Entry {
     pub date: NaiveDate,
     pub new_cases: u32,
     pub total_cases: u32,
-    pub recovered: u32,
-    pub deaths: u32,
+    pub total_recovered: u32,
+    pub total_deaths: u32,
     pub active_cases: u32,
 }
 
 impl Entry {
     pub fn into_pretty_string(&self) -> String {
-        format!("COVID19 Stats - {}\n\nNew Cases: {}\nTotal Cases: {}\nRecovered Cases: {}\nDeaths: {}\nActive Cases: {}", 
+        format!("COVID19 Stats - {}\n\nNew Cases: {}\nTotal Cases: {}\nTotal Recovered: {}\nTotal Deaths: {}\nActive Cases: {}", 
             self.date.format("%A %-d %B, %C%y"),
             self.new_cases, 
             self.total_cases, 
-            self.recovered, 
-            self.deaths, 
+            self.total_recovered, 
+            self.total_deaths, 
             self.active_cases
         )
     }
@@ -30,8 +30,8 @@ pub fn parse_from_csv(row: &str) -> Result<Entry> {
         date: parse_date(iter_row.next().unwrap())?,
         new_cases: iter_row.next().unwrap().parse()?,
         total_cases: iter_row.next().unwrap().parse()?,
-        recovered: iter_row.next().unwrap().parse()?,
-        deaths: iter_row.next().unwrap().parse()?,
+        total_recovered: iter_row.next().unwrap().parse()?,
+        total_deaths: iter_row.next().unwrap().parse()?,
         active_cases: iter_row.next().unwrap().parse()?,
     })
 }
