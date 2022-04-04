@@ -11,7 +11,7 @@ pub struct Entry {
 }
 
 impl Entry {
-    pub fn into_pretty_string(&self) -> String {
+    pub fn into_pretty_string(self) -> String {
         format!("COVID19 Stats - {}\n\nNew Cases: {}\nTotal Cases: {}\nTotal Recovered: {}\nTotal Deaths: {}\nActive Cases: {}", 
             self.date.format("%A %-d %B, %C%y"),
             self.new_cases, 
