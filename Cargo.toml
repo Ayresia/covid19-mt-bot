@@ -7,6 +7,8 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.56"
+chrono = "0.4.19"
 dotenv = "0.15.0"
+reqwest = "0.11.10"
 teloxide = "0.7.3"
 tokio = { version =  "1.8", features = ["rt-multi-thread", "macros"] }

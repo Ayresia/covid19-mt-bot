@@ -1,6 +1,8 @@
-use teloxide::prelude2::*;
-use dotenv::dotenv;
+mod covid;
+
 use anyhow::Result;
+use dotenv::dotenv;
+use teloxide::prelude2::{Bot, RequesterExt};
 
 #[tokio::main]
 async fn main() -> Result<()> {
