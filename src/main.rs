@@ -35,6 +35,6 @@ async fn main() -> Result<()> {
             }
         }
 
-        thread::sleep(Duration::from_secs(5));
+        thread::sleep(Duration::from_secs(60));
     }
 }
